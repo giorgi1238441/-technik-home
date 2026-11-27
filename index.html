@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TECH HOME | ტექნიკ ჰოუმი</title>
+    <style>
+        :root {
+            --yellow: #ffe000;
+            --black: #111;
+            --bg: #f4f5f7;
+            --muted: #666
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            font-family: Arial, sans-serif;
+            color: #151515
+        }
+
+        button,
+        input,
+        select {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        header {
+            background: #111;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 5
+        }
+
+        .top {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 18px 24px;
+            flex-wrap: wrap
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--yellow)
+        }
+
+        .logo small {
+            display: block;
+            font-size: 11px;
+            color: white;
+            letter-spacing: 1px
+        }
+
+        .search {
+            flex: 1;
+            min-width: 160px;
+            border: 0;
+            border-radius: 8px;
+            padding: 13px
+        }
+
+        .btn {
+            border: 0;
+            background: var(--yellow);
+            color: #111;
+            font-weight: bold;
+            border-radius: 7px;
+            padding: 12px 16px
+        }
+
+        .hero {
+            background: radial-gradient(ellipse at 80% 30%, #393500, #111 65%);
+            color: white;
+            padding: 60px 24px
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap
+        }
+
+        .tag {
+            color: var(--yellow);
+            letter-spacing: 3px;
+            font-weight: bold
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 100px);
+            line-height: .95;
+            margin: 18px 0;
+            color: white;
+            letter-spacing: -4px
+        }
+
+        .hero h1 span {
+            color: var(--yellow)
+        }
+
+        .hero p {
+            color: #ddd;
+            line-height: 1.7
+        }
+
+        .offer {
+            font-size: clamp(65px, 13vw, 170px);
+            font-weight: 900;
+            color: var(--yellow);
+            transform: rotate(-7deg);
+            letter-spacing: -8px
+        }
+
+        .timer {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0
+        }
+
+        .timer b {
+            background: #292929;
+            border: 1px solid #555;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 20px
+        }
+
+        .wrap {
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px 24px
+        }
+
+        .filters {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin: 20px 0
+        }
+
+        .filter {
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 25px;
+            padding: 10px 16px
+        }
+
+        .filter.active {
+            background: #111;
+            color: white;
+            border-color: #111
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .heading select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            background: white
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px
+        }
+
+        .card {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e8e8e8;
+            transition: .2s
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px #0001
+        }
+
+        .photo {
+            height: 175px;
+            width: 100%;
+            display: block;
+            object-fit: contain;
+            background: #fafafa;
+            border-radius: 8px
+        }
+
+        .badge {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            background: #d9162b;
+            color: white;
+            border-radius: 5px;
+            padding: 7px;
+            font-weight: bold
+        }
+
+        .category {
+            font-size: 12px;
+            color: #666;
+            margin-top: 15px
+        }
+
+        .card h3 {
+            font-size: 17px;
+            min-height: 42px;
+            margin: 8px 0
+        }
+
+        .price {
+            font-size: 25px;
+            font-weight: 900;
+            margin: 10px 0
+        }
+
+        .old {
+            font-size: 14px;
+            color: #777;
+            text-decoration: line-through;
+            margin-left: 8px
+        }
+
+        .card button {
+            margin-top: auto
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 24px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold
+        }
+
+        footer {
+            background: #111;
+            color: #bbb;
+            padding: 35px 24px;
+            text-align: center
+        }
+
+        dialog {
+            border: 0;
+            border-radius: 14px;
+            width: min(500px, 94vw);
+            max-height: 85vh;
+            padding: 24px
+        }
+
+        dialog::backdrop {
+            background: #0009
+        }
+
+        .line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-bottom: 1px solid #ddd;
+            padding: 14px 0
+        }
+
+        .line button {
+            border: 0;
+            padding: 8px;
+            border-radius: 5px
+        }
+
+        .empty {
+            padding: 40px;
+            text-align: center;
+            color: #666
+        }
+
+        .close {
+            background: #eee;
+            border: 0;
+            border-radius: 6px;
+            padding: 10px
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #111;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 10
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        @media(max-width:550px) {
+            .top {
+                gap: 10px;
+                padding: 12px
+            }
+
+            .search {
+                order: 3;
+                flex-basis: 100%
+            }
+
+            .hero {
+                padding: 35px 20px
+            }
+
+            .offer {
+                font-size: 90px
+            }
+
+            .wrap {
+                padding: 20px 12px
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 9px
+            }
+
+            .card {
+                padding: 10px
+            }
+
+            .photo {
+                height: 125px
+            }
+
+            .card h3 {
+                font-size: 14px
+            }
+
+            .price {
+                font-size: 19px
+            }
+
+            .old {
+                display: block;
+                margin: 3px 0
+            }
+
+            .card .btn {
+                font-size: 12px;
+                padding: 10px 4px
+            }
+        }
+
+        .sale-clock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 8px 12px;
+            background: var(--yellow);
+            color: #111;
+            flex-wrap: wrap
+        }
+
+        .sale-clock .timer {
+            margin: 0;
+            gap: 6px
+        }
+
+        .sale-clock .timer b {
+            background: #111;
+            color: white;
+            border: 0;
+            padding: 8px;
+            font-size: 18px
+        }
+
+        .photo {
+            background: white
+        }
+
+        .photo[hidden] {
+            display: none
+        }
+
+        .photo-fallback {
+            height: 175px;
+            place-content: center;
+            text-align: center;
+            color: #666;
+            background: #fafafa;
+            border-radius: 8px
+        }
+
+        .photo-fallback:not([hidden]) {
+            display: grid
+        }
+
+        @media(max-width:550px) {
+            .sale-clock {
+                gap: 5px;
+                font-size: 12px
+            }
+
+            .sale-clock .timer b {
+                font-size: 14px;
+                padding: 6px
+            }
+
+            .photo-fallback {
+                height: 125px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top"><a class="logo" href="#">TECH HOME<small>ტექნიკ ჰოუმი</small></a><input class="search"
+                id="search" placeholder="მოძებნე ტექნიკა..." aria-label="პროდუქტის ძებნა"><button class="btn"
+                id="cartOpen">🛒 კალათა (<span id="count">0</span>)</button></div>
+        <div class="sale-clock"><strong>BLACK FRIDAY-ის დასრულებამდე დარჩა</strong>
+            <div class="timer" id="timer" role="timer"></div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-inner">
+            <div>
+                <div class="tag">TECH HOME • SPECIAL SALE</div>
+                <h1>BLACK<br><span>FRIDAY.</span></h1>
+                <p>აღმოაჩინე სასურველი ტექნიკა განსაკუთრებულ ფასად.</p><a class="btn" href="#products">შეიძინე ახლა
+                    →</a>
+            </div>
+            <div class="offer">-50%<div style="font-size:20px;letter-spacing:0;text-align:center">ფასდაკლება 50%-მდე
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="benefits"><span>🚚 მიწოდება</span><span>✓ ხარისხიანი ტექნიკა</span><span>⚡ სპეციალური
+            შეთავაზებები</span></div>
+    <main class="wrap" id="products">
+        <div class="heading">
+            <h2>Black Friday შეთავაზებები</h2><select id="sort" aria-label="დალაგება">
+                <option value="default">პოპულარული</option>
+                <option value="low">ფასი: დაბლიდან</option>
+                <option value="high">ფასი: მაღლიდან</option>
+                <option value="sale">დიდი ფასდაკლება</option>
+            </select>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="grid" id="grid"></div>
+    </main>
+    <footer><strong style="color:#ffe000">TECH HOME</strong>
+        <p>ტექნიკის ონლაინ მაღაზია • დემო ვერსია</p><small>© 2026 TECH HOME</small>
+    </footer>
+    <dialog id="cart">
+        <div class="heading">
+            <h2>შენი კალათა</h2><button class="close" id="cartClose" aria-label="დახურვა">✕</button>
+        </div>
+        <div id="items"></div>
+        <h3>ჯამი: <span id="total">0</span> ₾</h3><button class="btn" id="checkout">შეკვეთის გაფორმება</button>
