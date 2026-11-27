@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TECH HOME | ტექნიკ ჰოუმი</title>
+    <style>
+        :root {
+            --yellow: #ffe000;
+            --black: #111;
+            --bg: #f4f5f7;
+            --muted: #666
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            font-family: Arial, sans-serif;
+            color: #151515
+        }
+
+        button,
+        input,
+        select {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        header {
+            background: #111;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 5
+        }
+
+        .top {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 18px 24px;
+            flex-wrap: wrap
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--yellow)
+        }
+
+        .logo small {
+            display: block;
+            font-size: 11px;
+            color: white;
+            letter-spacing: 1px
+        }
+
+        .search {
+            flex: 1;
+            min-width: 160px;
+            border: 0;
+            border-radius: 8px;
+            padding: 13px
+        }
+
+        .btn {
+            border: 0;
+            background: var(--yellow);
+            color: #111;
+            font-weight: bold;
+            border-radius: 7px;
+            padding: 12px 16px
+        }
+
+        .hero {
+            background: radial-gradient(ellipse at 80% 30%, #393500, #111 65%);
+            color: white;
+            padding: 60px 24px
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap
+        }
+
+        .tag {
+            color: var(--yellow);
+            letter-spacing: 3px;
+            font-weight: bold
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 100px);
+            line-height: .95;
+            margin: 18px 0;
+            color: white;
+            letter-spacing: -4px
+        }
+
+        .hero h1 span {
+            color: var(--yellow)
+        }
+
+        .hero p {
+            color: #ddd;
+            line-height: 1.7
+        }
+
+        .offer {
+            font-size: clamp(65px, 13vw, 170px);
+            font-weight: 900;
+            color: var(--yellow);
+            transform: rotate(-7deg);
+            letter-spacing: -8px
+        }
+
+        .timer {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0
+        }
+
+        .timer b {
+            background: #292929;
+            border: 1px solid #555;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 20px
+        }
+
+        .wrap {
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px 24px
+        }
+
+        .filters {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin: 20px 0
+        }
+
+        .filter {
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 25px;
+            padding: 10px 16px
+        }
+
+        .filter.active {
+            background: #111;
+            color: white;
+            border-color: #111
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .heading select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            background: white
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px
+        }
+
+        .card {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e8e8e8;
+            transition: .2s
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px #0001
+        }
+
+        .photo {
+            height: 175px;
+            width: 100%;
+            display: block;
+            object-fit: contain;
+            background: #fafafa;
+            border-radius: 8px
+        }
+
+        .badge {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            background: #d9162b;
+            color: white;
+            border-radius: 5px;
+            padding: 7px;
+            font-weight: bold
+        }
+
+        .category {
+            font-size: 12px;
+            color: #666;
+            margin-top: 15px
+        }
+
+        .card h3 {
+            font-size: 17px;
+            min-height: 42px;
+            margin: 8px 0
+        }
+
+        .price {
+            font-size: 25px;
+            font-weight: 900;
+            margin: 10px 0
+        }
+
+        .old {
+            font-size: 14px;
+            color: #777;
+            text-decoration: line-through;
+            margin-left: 8px
+        }
+
+        .card button {
+            margin-top: auto
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 24px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold
+        }
+
+        footer {
+            background: #111;
+            color: #bbb;
+            padding: 35px 24px;
+            text-align: center
+        }
+
+        dialog {
+            border: 0;
+            border-radius: 14px;
+            width: min(500px, 94vw);
+            max-height: 85vh;
+            padding: 24px
+        }
+
+        dialog::backdrop {
+            background: #0009
+        }
+
+        .line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-bottom: 1px solid #ddd;
+            padding: 14px 0
+        }
+
+        .line button {
+            border: 0;
+            padding: 8px;
+            border-radius: 5px
+        }
+
+        .empty {
+            padding: 40px;
+            text-align: center;
+            color: #666
+        }
+
+        .close {
+            background: #eee;
+            border: 0;
+            border-radius: 6px;
+            padding: 10px
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #111;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 10
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        @media(max-width:550px) {
+            .top {
+                gap: 10px;
+                padding: 12px
+            }
+
+            .search {
+                order: 3;
+                flex-basis: 100%
+            }
+
+            .hero {
+                padding: 35px 20px
+            }
+
+            .offer {
+                font-size: 90px
+            }
+
+            .wrap {
+                padding: 20px 12px
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 9px
+            }
+
+            .card {
+                padding: 10px
+            }
+
+            .photo {
+                height: 125px
+            }
+
+            .card h3 {
+                font-size: 14px
+            }
+
+            .price {
+                font-size: 19px
+            }
+
+            .old {
+                display: block;
+                margin: 3px 0
+            }
+
+            .card .btn {
+                font-size: 12px;
+                padding: 10px 4px
+            }
+        }
+
+        .sale-clock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 8px 12px;
+            background: var(--yellow);
+            color: #111;
+            flex-wrap: wrap
+        }
+
+        .sale-clock .timer {
+            margin: 0;
+            gap: 6px
+        }
+
+        .sale-clock .timer b {
+            background: #111;
+            color: white;
+            border: 0;
+            padding: 8px;
+            font-size: 18px
+        }
+
+        .photo {
+            background: white
+        }
+
+        .photo[hidden] {
+            display: none
+        }
+
+        .photo-fallback {
+            height: 175px;
+            place-content: center;
+            text-align: center;
+            color: #666;
+            background: #fafafa;
+            border-radius: 8px
+        }
+
+        .photo-fallback:not([hidden]) {
+            display: grid
+        }
+
+        @media(max-width:550px) {
+            .sale-clock {
+                gap: 5px;
+                font-size: 12px
+            }
+
+            .sale-clock .timer b {
+                font-size: 14px;
+                padding: 6px
+            }
+
+            .photo-fallback {
+                height: 125px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top"><a class="logo" href="#">TECH HOME<small>ტექნიკ ჰოუმი</small></a><input class="search"
+                id="search" placeholder="მოძებნე ტექნიკა..." aria-label="პროდუქტის ძებნა"><button class="btn"
+                id="cartOpen">🛒 კალათა (<span id="count">0</span>)</button></div>
+        <div class="sale-clock"><strong>BLACK FRIDAY-ის დასრულებამდე დარჩა</strong>
+            <div class="timer" id="timer" role="timer"></div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-inner">
+            <div>
+                <div class="tag">TECH HOME • SPECIAL SALE</div>
+                <h1>BLACK<br><span>FRIDAY.</span></h1>
+                <p>აღმოაჩინე სასურველი ტექნიკა განსაკუთრებულ ფასად.</p><a class="btn" href="#products">შეიძინე ახლა
+                    →</a>
+            </div>
+            <div class="offer">-50%<div style="font-size:20px;letter-spacing:0;text-align:center">ფასდაკლება 50%-მდე
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="benefits"><span>🚚 მიწოდება</span><span>✓ ხარისხიანი ტექნიკა</span><span>⚡ სპეციალური
+            შეთავაზებები</span></div>
+    <main class="wrap" id="products">
+        <div class="heading">
+            <h2>Black Friday შეთავაზებები</h2><select id="sort" aria-label="დალაგება">
+                <option value="default">პოპულარული</option>
+                <option value="low">ფასი: დაბლიდან</option>
+                <option value="high">ფასი: მაღლიდან</option>
+                <option value="sale">დიდი ფასდაკლება</option>
+            </select>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="grid" id="grid"></div>
+    </main>
+    <footer><strong style="color:#ffe000">TECH HOME</strong>
+        <p>ტექნიკის ონლაინ მაღაზია • დემო ვერსია</p><small>© 2026 TECH HOME</small>
+    </footer>
+    <dialog id="cart">
+        <div class="heading">
+            <h2>შენი კალათა</h2><button class="close" id="cartClose" aria-label="დახურვა">✕</button>
+        </div>
+        <div id="items"></div>
+        <h3>ჯამი: <span id="total">0</span> ₾</h3><button class="btn" id="checkout">შეკვეთის გაფორმება</button>
+        <p id="notice" role="status"></p>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script>
+        const data = [['Apple iPhone 16', 'სმარტფონები', 2999, 2399, 'phone'], ['Samsung Galaxy S24', 'სმარტფონები', 2499, 1799, 'phone'], ['Xiaomi Redmi Note 14', 'სმარტფონები', 799, 549, 'phone'], ['Apple MacBook Air M3', 'ლეპტოპები', 3999, 3199, 'laptop'], ['Lenovo IdeaPad Slim 3', 'ლეპტოპები', 1599, 1099, 'laptop'], ['ASUS TUF Gaming A15', 'ლეპტოპები', 3299, 2499, 'laptop'], ['Samsung 55″ QLED TV', 'ტელევიზორები', 2299, 1599, 'tv'], ['LG 43″ Smart TV', 'ტელევიზორები', 1399, 999, 'tv'], ['Sony WH-1000XM5', 'აუდიო', 999, 699, 'headphones'], ['JBL Flip 6', 'აუდიო', 399, 249, 'speaker'], ['Apple AirPods 4', 'აუდიო', 599, 449, 'earbuds'], ['Samsung Galaxy Watch 7', 'საათები', 899, 599, 'watch'], ['Apple Watch SE', 'საათები', 899, 649, 'watch'], ['PlayStation 5 Slim', 'გეიმინგი', 1899, 1499, 'console'], ['Logitech G502 Hero', 'გეიმინგი', 199, 99, 'mouse'], ['Razer BlackWidow V3', 'გეიმინგი', 399, 229, 'keyboard'], ['Xiaomi Robot Vacuum S10', 'სახლის ტექნიკა', 999, 649, 'vacuum'], ['Philips Airfryer', 'სახლის ტექნიკა', 599, 349, 'airfryer']].map(([name, cat, old, price, kind], id) => ({ id, name, cat, old, price, kind, discount: Math.round((1 - price / old) * 100) }));
+        const photos = ["https://www.megatechnica.ge/storage/07811dc6c422334ce36a09ff5cd6fe71/45c48cce2e2d7fbdea1afc51c7c6ad26/1ff1de774005f8da13f42943881c655f/9bf31c7ff062936a96d3c8bd1f8f2ff3/19ca14e7ea6328a42e0eb13d585e4c22/d06de0a277ab7666624f8f56e014f25b_200.jpg", "https://www.megatechnica.ge/storage/07811dc6c422334ce36a09ff5cd6fe71/c4ca4238a0b923820dcc509a6f75849b/1ff1de774005f8da13f42943881c655f/6512bd43d9caa6e02c990b0a82652dca/182be0c5cdcd5072bb1864cdee4d3d6e/68cfff3705e2f4741ae4784d913ec326_200.jpg", "https://exitocol.vtexassets.com/arquivos/ids/26892910/celular-xiaomi-redmi-note-14-6gb-128gb-negro.jpg?v=638762926396570000", "https://res.plaisio.gr/image/upload/d_Shared%3ANotFound%3Aproduct-notfound.jpg/Shared/Product/Images/4444256", "https://bf1af2.akinoncloudcdn.com/products/2024/09/23/137329/086138bc-41ce-4da9-adc2-d5f3057e338f_size3840_cropCenter.jpg", "https://xstore.md/images/htag/laptop-asus-tuf-gaming-a15.png", "https://www.lacuracao.pe/media/catalog/product/q/n/qn55q60dagxpe_01.jpg?bg-color=255%2C255%2C255&canvas=700%3A700&fit=bounds&height=700&quality=80&width=700", "https://elektra.vtexassets.com/arquivos/ids/27630026/1012558.jpg?v=639118754256800000", "https://pcdiga-prod.eu.saleor.cloud/media/thumbnails/products/P044643_4402f3bd_thumbnail_1024.jpg", "https://www.sportsmans.com/medias/jbl-flip-6-portable-bluetooth-speaker-black-1816962-1.jpg?context=bWFzdGVyfGltYWdlc3w4NDQ1MnxpbWFnZS9qcGVnfGFEazNMMmd3TXk4eE1USTNPVEF6TnpVek1ERTBNaTh4TWpBd0xXTnZiblpsY25OcGIyNUdiM0p0WVhSZlltRnpaUzFqYjI1MlpYSnphVzl1Um05eWJXRjBYM050ZHkweE9ERTJPVFl5TFRFdWFuQm58OTEyYTMzNTEyMzQ1MzE0N2I4MWZiYTcyN2RlYjQ2NTY5YzMzN2JiYmZmYTc1YjQ1ZTE5ZDEwOWE1Y2UzZmIxZg", "https://youget.pt/190765-large_default/auriculares-apple-airpods-4-white.jpg", "https://www.einfo.co.nz/media/catalog/product/cache/dd4850ad4231b6306bceadf38a0bbeed/w/t/wthsam0310000__1.jpg", "https://istore.ph/cdn/shop/products/ROSA_Apple_Watch_SE_GPS_40mm_Midnight_Aluminum_Midnight_Sport_Band_PDP_Image_Position-1.jpg?v=1678871495&width=2000", "https://content.abt.com/image.php/eb4b839130df7fa067a0555ccdc92637?canvas=&ck=1&height=750&image=%2Fimages%2Fproducts%2FBDP_Images%2Fsony-ps5-gaming-console-1000039671-with-dualsense-controller.jpg&width=750", "https://s3.zoommer.ge/site/2e42700b-caf8-4c07-b20d-141c80aeab57_Thumb.jpeg", "https://assets2.razerzone.com/images/pnx.assets/374389108b9750b93f16f13fa237f58c/razer-blackwidow-v3-500x500.png", "https://i02.appmifile.com/503_item_my/02/04/2024/6a56c4f6dcbd3af1a63a776e597f3126.png", "https://alje.com/cdn/shop/files/NA229_00_9ceae268-9660-4860-a11f-cc640e244b86_800x.jpg?v=1774773795"];
+        function picture(p) { return photos[p.id] }
+        let category = 'ყველა', cart = {}; try { cart = JSON.parse(localStorage.getItem('tech-home-cart') || '{}') || {} } catch { }; const $ = id => document.getElementById(id); const money = n => n.toLocaleString('ka-GE'); const categories = ['ყველა', ...new Set(data.map(p => p.cat))]; function render() { $('filters').innerHTML = categories.map(c => `<button class="filter ${c === category ? 'active' : ''}" data-cat="${c}" aria-pressed="${c === category}">${c}</button>`).join(''); let list = data.filter(p => (category === 'ყველა' || p.cat === category) && p.name.toLowerCase().includes($('search').value.trim().toLowerCase())); const sort = $('sort').value; if (sort === 'low') list.sort((a, b) => a.price - b.price); if (sort === 'high') list.sort((a, b) => b.price - a.price); if (sort === 'sale') list.sort((a, b) => b.discount - a.discount); $('grid').innerHTML = list.map(p => `<article class="card"><span class="badge">-${p.discount}%</span><img class="photo" src="${picture(p)}" alt="${p.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="photo-fallback" hidden>ფოტო ვერ ჩაიტვირთა</div><span class="category">${p.cat}</span><h3>${p.name}</h3><div class="price">${money(p.price)} ₾ <span class="old">${money(p.old)} ₾</span></div><button class="btn" data-add="${p.id}">კალათაში დამატება</button></article>`).join('') || '<p class="empty">პროდუქტი ვერ მოიძებნა.</p>' } function update() { try { localStorage.setItem('tech-home-cart', JSON.stringify(cart)) } catch { } let total = 0, count = 0; $('items').innerHTML = data.filter(p => cart[p.id] > 0).map(p => { let q = cart[p.id]; total += p.price * q; count += q; return `<div class="line"><div><strong>${p.name}</strong><p>${money(p.price * q)} ₾</p></div><div><button data-change="${p.id}" data-delta="-1" aria-label="შემცირება">−</button> ${q} <button data-change="${p.id}" data-delta="1" aria-label="დამატება">+</button> <button data-remove="${p.id}" aria-label="წაშლა">✕</button></div></div>` }).join('') || '<p>კალათა ცარიელია.</p>'; $('count').textContent = count; $('total').textContent = money(total); $('checkout').disabled = !count; $('notice').textContent = '' } let toastTimer; document.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.cat !== undefined) { category = b.dataset.cat; render() } if (b.dataset.add !== undefined) { let id = b.dataset.add; cart[id] = (cart[id] || 0) + 1; update(); $('toast').textContent = '✓ პროდუქტი დამატებულია'; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 1800) } if (b.dataset.change !== undefined) { let id = b.dataset.change; cart[id] = Math.max(0, (cart[id] || 0) + Number(b.dataset.delta)); update() } if (b.dataset.remove !== undefined) { delete cart[b.dataset.remove]; update() } }); $('search').addEventListener('input', render); $('sort').addEventListener('change', render); $('cartOpen').onclick = () => $('cart').showModal(); $('cartClose').onclick = () => $('cart').close(); $('checkout').onclick = () => $('notice').textContent = 'ეს დემო მაღაზიაა — რეალური შეკვეთა ან გადახდა არ სრულდება.'; function tick() { let s = Math.max(0, Math.floor((new Date('2026-12-01T00:00:00+04:00') - Date.now()) / 1000)); $('timer').innerHTML = s ? [[Math.floor(s / 86400), 'დღე'], [Math.floor(s / 3600) % 24, 'სთ'], [Math.floor(s / 60) % 60, 'წთ'], [s % 60, 'წმ']].map(([v, t]) => `<b>${String(v).padStart(2, '0')} <small style="font-size:11px">${t}</small></b>`).join('') : 'აქცია დასრულებულია'; } render(); update(); tick(); setInterval(tick, 1000);
+    </script>
+</body>
+
+</html>
